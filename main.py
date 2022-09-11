@@ -14,9 +14,6 @@ def on_button_pressed_a():
     กระสุน.turn(Direction.LEFT, 90)
 input.on_button_pressed(Button.A, on_button_pressed_a)
 
-def นับคะแนน():
-    game.game_over()
-    basic.show_number(game.score())
 def สร้างยาน():
     global ยาน
     if ยาน == ยาน:

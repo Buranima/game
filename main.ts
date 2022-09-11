@@ -2,20 +2,15 @@ function ยิง () {
     if (กระสุน.isTouching(ยาน)) {
         game.addScore(1)
         กระสุน.delete()
-        ความเร็ว = ความเร็ว + -5
+        ความเร็ว = ความเร็ว + -10
         สร้างยาน()
-        เช็คปืน = true
     } else if (กระสุน.get(LedSpriteProperty.Y) == 0) {
         กระสุน.delete()
-        เช็คปืน = true
     }
 }
 input.onButtonPressed(Button.A, function () {
-    if (เช็คปืน) {
-        เช็คปืน = false
-        กระสุน = game.createSprite(ปืน.get(LedSpriteProperty.X), ปืน.get(LedSpriteProperty.Y))
-        กระสุน.turn(Direction.Left, 90)
-    }
+    กระสุน = game.createSprite(ปืน.get(LedSpriteProperty.X), ปืน.get(LedSpriteProperty.Y))
+    กระสุน.turn(Direction.Left, 90)
 })
 function สร้างยาน () {
     if (ยาน == ยาน) {
@@ -46,22 +41,18 @@ function สร้างยาน () {
     }
 }
 input.onButtonPressed(Button.B, function () {
-    if (เช็คปืน) {
-        เช็คปืน = false
-        กระสุน = game.createSprite(ปืน.get(LedSpriteProperty.X), ปืน.get(LedSpriteProperty.Y))
-        กระสุน.turn(Direction.Left, 90)
-    }
+    กระสุน = game.createSprite(ปืน.get(LedSpriteProperty.X), ปืน.get(LedSpriteProperty.Y))
+    กระสุน.turn(Direction.Left, 90)
 })
 let กระสุน: game.LedSprite = null
-let เช็คปืน = false
 let ยาน: game.LedSprite = null
 let ปืน: game.LedSprite = null
 let ความเร็ว = 0
 ความเร็ว = 200
 ปืน = game.createSprite(2, 4)
 ยาน = game.createSprite(randint(0, 4), 0)
-เช็คปืน = true
-game.startCountdown(40000)
+let ตาย = 0
+game.startCountdown(10000)
 basic.forever(function () {
     ปืน.move(1)
     ปืน.ifOnEdgeBounce()
@@ -70,7 +61,4 @@ basic.forever(function () {
         ยิง()
     }
     basic.pause(ความเร็ว)
-})
-basic.forever(function () {
-	
 })
