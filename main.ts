@@ -71,3 +71,6 @@ basic.forever(function () {
     }
     basic.pause(ความเร็ว)
 })
+basic.forever(function () {
+	
+})
