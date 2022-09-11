@@ -50,8 +50,7 @@ input.on_button_pressed(Button.B, on_button_pressed_b)
 ความเร็ว = 200
 ปืน = game.create_sprite(2, 4)
 ยาน = game.create_sprite(randint(0, 4), 0)
-ตาย = 0
-game.start_countdown(10000)
+game.start_countdown(40000)
 
 def on_forever():
     ปืน.move(1)

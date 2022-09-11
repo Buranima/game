@@ -51,8 +51,7 @@ let ความเร็ว = 0
 ความเร็ว = 200
 ปืน = game.createSprite(2, 4)
 ยาน = game.createSprite(randint(0, 4), 0)
-let ตาย = 0
-game.startCountdown(10000)
+game.startCountdown(40000)
 basic.forever(function () {
     ปืน.move(1)
     ปืน.ifOnEdgeBounce()
