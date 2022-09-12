@@ -1,17 +1,21 @@
 def ยิง():
-    global ความเร็ว
+    global ความเร็ว, เช็คปืน
     if กระสุน.is_touching(ยาน):
         game.add_score(1)
         กระสุน.delete()
         ความเร็ว = ความเร็ว + -10
         สร้างยาน()
+        เช็คปืน = True
     elif กระสุน.get(LedSpriteProperty.Y) == 0:
         กระสุน.delete()
+        เช็คปืน = True
 
 def on_button_pressed_a():
-    global กระสุน
-    กระสุน = game.create_sprite(ปืน.get(LedSpriteProperty.X), ปืน.get(LedSpriteProperty.Y))
-    กระสุน.turn(Direction.LEFT, 90)
+    global กระสุน, เช็คปืน
+    if เช็คปืน:
+        กระสุน = game.create_sprite(ปืน.get(LedSpriteProperty.X), ปืน.get(LedSpriteProperty.Y))
+        กระสุน.turn(Direction.LEFT, 90)
+        เช็คปืน = False
 input.on_button_pressed(Button.A, on_button_pressed_a)
 
 def สร้างยาน():
@@ -38,12 +42,15 @@ def สร้างยาน():
                 ยาน = game.create_sprite(randint(0, 4), 0)
 
 def on_button_pressed_b():
-    global กระสุน
-    กระสุน = game.create_sprite(ปืน.get(LedSpriteProperty.X), ปืน.get(LedSpriteProperty.Y))
-    กระสุน.turn(Direction.LEFT, 90)
+    global กระสุน, เช็คปืน
+    if เช็คปืน:
+        กระสุน = game.create_sprite(ปืน.get(LedSpriteProperty.X), ปืน.get(LedSpriteProperty.Y))
+        กระสุน.turn(Direction.LEFT, 90)
+        เช็คปืน = False
 input.on_button_pressed(Button.B, on_button_pressed_b)
 
 กระสุน: game.LedSprite = None
+เช็คปืน = False
 ยาน: game.LedSprite = None
 ปืน: game.LedSprite = None
 ความเร็ว = 0
@@ -51,6 +58,7 @@ input.on_button_pressed(Button.B, on_button_pressed_b)
 ปืน = game.create_sprite(2, 4)
 ยาน = game.create_sprite(randint(0, 4), 0)
 game.start_countdown(40000)
+เช็คปืน = True
 
 def on_forever():
     ปืน.move(1)

@@ -1,6 +1,6 @@
 function ยิง () {
     if (กระสุน.isTouching(ยาน)) {
-        game.addScore(10)
+        game.addScore(1)
         กระสุน.delete()
         ความเร็ว = ความเร็ว + -1
         สร้างยาน()
