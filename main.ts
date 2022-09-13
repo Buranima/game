@@ -66,7 +66,7 @@ input.onButtonPressed(Button.B, function () {
         เช็คปืน = false
         ชีวิต = ชีวิต - 1
     }
-    if (ชีวิต <= 2) {
+    if (ชีวิต <= 1) {
         ตาย()
     }
 })
